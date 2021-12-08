@@ -1,7 +1,21 @@
 console.log('js'); //viewed in console of the browser
+//   $('#more').hide();
+// $('#demo-modal').click(function(){
+//   $('#more').show();
+// });
 
 
+
+
+// console.log(key);//mapKey.js has the key.
+
+// incorporating the map key into the script tag
+// var script  = '<script src="https://maps.googleapis.com/maps/api/js?key='+ key +'&callback=initMap&libraries=places&v=weekly" async></script>';
+// console.log(script);
+ // javascript functionality to be triggered after the webpage is loaded.
 $(document).ready(function(){
+  // $('body').append(script);//appending script var to body of index.html for a safe use of the key
+
   $("#register").hide();
   $("#book").hide();
   $("#contact").hide();
@@ -230,6 +244,8 @@ contactLink.addEventListener('click', function(){
 // parameter when you first load the API. For example:
 // <script
 // src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+var apiResponse;
 function initMap() {
   const map = new google.maps.Map(document.getElementById("map"), {
     mapTypeControl: false,
@@ -328,26 +344,48 @@ class AutocompleteDirectionsHandler {
       (response, status) => {
         if (status === "OK") {
           me.directionsRenderer.setDirections(response);
+            apiResponse = response;
+            console.log(apiResponse);
             console.log(response.routes[0]);
             console.log(response.routes[0].legs[0].start_address, response.routes[0].legs[0].end_address);
             console.log(response.routes[0].legs[0].distance.text,response.routes[0].legs[0].duration.text);
             var result = document.getElementById('result');
-            result.innerHTML = '<p class="bg-info text-primary fw-bold h3">Start at: '+ response.routes[0].legs[0].start_address+'<br>'+'<br>'+
+            result.innerHTML = '<p class="bg-info text-primary fw-bold h3">Start at: '+ response.routes[0].legs[0].start_address +'<br>'+'<br>'+
                                 'Reach destination: ' +response.routes[0].legs[0].end_address+'<br>'+'<br>'+
                                 'Distance:  '+response.routes[0].legs[0].distance.text+'<br>'+ '<br>'+
                                 'Duration: '+response.routes[0].legs[0].duration.text+'<br>'+ '<br>'+'<br>'+
-                                'Amount to be paid: $ ' + parseFloat(response.routes[0].legs[0].distance.text) * 2.50 +'</p>'+'<br>'+'<br>'+
-                                '<button class="btn btn-primary text-light fw-bolder border border-info border-3 display-4 col-12 py-3" type="button" name="button">Pay NZ $'+
-                                parseFloat(response.routes[0].legs[0].distance.text) * 2.50 +'</button>';
-
+                                'Amount to be paid: $ ' + parseFloat(response.routes[0].legs[0].distance.text) * 2.50 +'</p>'+'<br>'+'<br>';
 
 
 
         } else {
           window.alert("Directions request failed due to " + status);
         }
+        return (apiResponse);
       }
     );
   }//route
 
 }//AutocompleteDirectionsHandler
+
+// $('#result').html(
+
+// parseFloat(response.routes[0].legs[0].distance.text) * 2.50 +'</button>');
+
+// function myModal(){// Button trigger modal
+//   console.log('myModal');
+  result.innerHTML +=
+  '<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">'+
+  '  Pay now   </button>'+
+//  Modal
+'<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">' +
+'  <div class="modal-dialog"> + <div class="modal-content"> + <div class="modal-header">'+
+'  <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>'+
+'<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>+'
+'  </div> <div class="modal-body">'+
+'  card details are taken using a form' +
+'</div> <div class="modal-footer">' +
+'  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>'+
+'    <button type="button" class="btn btn-primary">Understood</button>' +
+'  </div> </div> </div> </div>';
+// };//myModal

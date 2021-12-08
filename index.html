@@ -17,109 +17,272 @@
   <title>Learning Javascript</title>
 </head>
 <body>
-  <div class="container">
 
-    <header>
+   <div class="container">
+
+   <header>
       <div class="row py-4 px-3 clearfix">
-        <div class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-4 pl-2">
+        <div class="col-4 ">
             <i id="home-icon" class="fas fa-home text-dark home-icon "></i>
         </div>
 
-        <div class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+        <div class="col-4">
           <img class="logo" src="image/taxi-logo.png" alt="Taxi logo">
         </div>
 
-        <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+        <div class="col-4">
             <button id="login-btn" class="btn btn-lg btn-info text-light login-btn " type="button" name="button">Login</button>
         </div>
 
       </div>
 
     </header>
-    <nav>
-      <div class="">
-        <img class="banner" src="image/book.jpg" alt="Banner image">
+
+    <!-- banner and nav -->
+    <div class="">
+      <img class="banner" src="image/book.jpg" alt="Banner image">
+    </div>
+
+    <nav id="nav" class="bg-dark border border-info border-2">
+
+      <div id="nav-close-btn" class="text-light nav-close-btn">
+        <i id="close-btn" class="fas fa-times mr-4 p-2 close-btn"></i>
       </div>
 
-      <ul id="taxi-nav-container" class="taxi-nav-container bg-dark text-info clearfix ">
-        <div class="text-light">
-          <i id="close-btn" class="fas fa-times bg-info mr-4 p-2 close-btn"></i>
-        </div>
-        <li class="taxi-nav-list mt-3 home"> <a class="taxi-nav-link" href="#"> Home </a> </li>
-        <li class="taxi-nav-list book"> <a class="taxi-nav-link" href="#"> Book </a> </li>
-        <li class="taxi-nav-list pay"> <a class="taxi-nav-link" href="#"> Pay </a> </li>
-        <li class="taxi-nav-list contact"> <a class="taxi-nav-link" href="#"> Contact </a> </li>
+      <ul id="taxi-nav-container" class="text-info clearfix taxi-nav-container">
+
+        <li  class="taxi-nav-list mt-3 home"> <a id="home-link" class="taxi-nav-link" href="#home"> Home </a> </li>
+        <li class="taxi-nav-list register"> <a id="register-link" class="taxi-nav-link" href="#Register"> Register </a> </li>
+        <li class="taxi-nav-list book"> <a id="book-link" class="taxi-nav-link" href="#book"> Book </a> </li>
+        <li class="taxi-nav-list contact"> <a id="contact-link" class="taxi-nav-link" href="#contact"> Contact </a> </li>
       </ul>
+
     </nav>
-    <!-- login form -->
-    <form id="login-form" class="text-dark my-5 width" action="index.html" method="post">
-      <label class="form-control" for="username">Enter the username: </label>
-      <input type="text" name="username" class="form-control" id="username" value="">
 
-      <label class="form-control" for="password">Enter the password: </label>
-      <input type="password" name="password" class="form-control" id="password" value="">
 
-      <button id="submit" type="button" class="btn btn-dark text-info btn-xxl" name="button">Submit</button>
-    </form>
     <main>
-    <!-- Input section -->
-    <section>
-      <form id="input-form" class=" my-5 border border-info p-5" action="index.html" method="post">
-        <h1>Location</h1>
-        <label class="form-control" for="origin">Origin</label>
-        <select class="form-control" id="origin" name="origin">
-          <option value="courtney-place">Courtney Place</option>
-          <option value="lambton-quay">Lambton Quay</option>
-          <option value="johnsonville">Johnsonville</option>
-          <option value="petone">Petone</option>
-        </select>
+      <!-- login section -->
+      <section class="row clearfix">
 
-        <label class="form-control mt-4" for="destination">Destination</label>
-        <select class="form-control" id="destination" name="destination">
-          <option value="courtney-place">Courtney Place</option>
-          <option value="lambton-quay">Lambton Quay</option>
-          <option value="johnsonville">Johnsonville</option>
-          <option value="petone">Petone</option>
-        </select>
+      <form id="login-form" class="my-5 border border-dark p-5 text-info col-12 col-sm-12 col-md-7 col-lg-5 col-xl-5 col-xxl-5" action="index.html" method="post">
+          <h1>Login </h1>
+        <label class="form-control mt-2" for="username">Enter the username: </label>
+        <input type="text" name="username" class="form-control" id="username" value="">
 
-        <label class="form-control mt-4" for="start-time">Start time: </label>
-        <input class="form-control" type="date" id="start-time" name="start-time">
+        <label class="form-control mt-2" for="password">Enter the password: </label>
+        <input type="password" name="password" class="form-control" id="password" value="">
 
-        <label class="form-control mt-4" for="appt">Select a time:</label>
-        <input class="form-control" type="time" id="appt" name="appt">
-
-        <button id="submit-input" class="btn btn-lg btn-info text-dark mt-3" type="button" name="button">Submit</button>
+        <button id="submit-login" type="button" class="btn btn-lg btn-dark text-info mt-3 border border-info" name="button">Sign up</button>
       </form>
-    </section>
-    <!-- map section -->
-    <section class="row clearfix">
-      <h3>Map & Amount Calculation</h3>
-      <!--The div element for the map -->
-      <div id="map" class="col-12 col-sm-12 col-md-8 col-lg-9 col-xl-9 col-xxl-9"></div>
-      <div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
-        <h4>calculation</h4>
-      </div>
-    </section>
-    </main>
-    <footer>
+      </section>
 
+      <section id="home" class="text-info my-5">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+          velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+          non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </section>
+
+      <!-- Input section -->
+      <section id="register" class="row clearfix">
+        <form id="input-form" class="my-5 border border-info p-5 col-12 col-sm-12 col-md-7 col-lg-5 col-xl-5 col-xxl-5">
+          <h1>Registeration form </h1>
+          <label class="form-control mt-2" for="origin">Origin</label>
+          <select class="form-control" id="origin" name="origin">
+            <option value="courtney-place">Courtney Place</option>
+            <option value="lambton-quay">Lambton Quay</option>
+            <option value="johnsonville">Johnsonville</option>
+            <option value="petone">Petone</option>
+          </select>
+
+          <label class="form-control mt-4" for="destination">Destination</label>
+          <select class="form-control" id="destination" name="destination">
+            <option value="courtney-place">Courtney Place</option>
+            <option value="lambton-quay">Lambton Quay</option>
+            <option value="johnsonville">Johnsonville</option>
+            <option value="petone">Petone</option>
+          </select>
+
+          <label class="form-control mt-4" for="date">Select a date </label>
+          <input class="form-control" type="date" id="date" name="start-time">
+
+          <label class="form-control mt-4" for="time">Select a time:</label>
+          <input class="form-control" type="time" id="time" name="time">
+
+          <button id="submit-input" class="btn btn-lg btn-info text-dark mt-3 border border-dark" type="button" name="button">Book</button>
+        </form>
+      </section>
+
+      <!-- map section -->
+      <section id="book" class="row clearfix">
+        <h3>Map & Amount Calculation</h3>
+        <!--The div element for the map -->
+        <!-- <div id="map" class="col-12 col-sm-12 col-md-8 col-lg-9 col-xl-9 col-xxl-9"></div> -->
+
+        <!-- <div id="calculation" class="mt-4 col-12 col-sm-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 calculation">
+          <h4 >Calculation</h4> -->
+
+
+          <!-- ======================================= -->
+          <!-- Routes and distance for cities in NZ
+          <div id="container">
+        <div id="map"></div>
+        <div id="sidebar">
+          <div>
+            <b>Start:</b>
+            <select id="start">
+              <option value="Wellington, NZ">Wellington</option>
+              <option value="Auckland, NZ">Auckland</option>
+              <option value="New York, NY">Christchurch</option>
+              <option value="Miami, FL">Dunedin</option>
+            </select>
+            <br />
+            <b>Waypoints:</b> <br />
+            <i>(Ctrl+Click or Cmd+Click for multiple selection)</i> <br />
+            <select multiple id="waypoints">
+              <option value="Taupo, NZ">Taupo</option>
+              <option value="Auckland, NZ">Auckland</option>
+              <option value="Napier, NZ">Napier</option>
+              <option value="Rotorua, NZ">Rotorua</option>
+
+            </select>
+            <br />
+            <b>End:</b>
+            <select id="end">
+              <option value="Wellington, NZ">Wellington</option>
+              <option value="Auckland, NZ">Auckland</option>
+
+            </select>
+            <br />
+            <input type="submit" id="submit" />
+          </div>
+          <div id="directions-panel"></div>
+        </div>
+      </div> -->
+      <!-- ================================= -->
+
+    <!-- autocomplete and route -->
+    <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 col-xxl-8">
+
+
+      <div style="display: none">
+      <input
+       id="origin-input"
+       class="controls"
+       type="text"
+       placeholder="Enter an origin location"
+      />
+
+      <input
+       id="destination-input"
+       class="controls"
+       type="text"
+       placeholder="Enter a destination location"
+      />
+
+      <div id="mode-selector" class="controls">
+
+
+         <input type="radio" name="type" id="changemode-driving" checked />
+         <label for="changemode-driving">Driving</label>
+
+      </div>
+
+      </div>
+
+    <div id="map">  </div>
+    </div>
+    <div id="result" class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+
+    </div>
+
+
+
+        <!-- </div> -->
+     </section>
+
+     <section id="contact" class="row clearfix">
+
+        <form id="contact-form" class="my-5 border border-info border-4 p-5 text-info col-12 col-sm-12 col-md-8 col-lg-9 col-xl-9 col-xxl-9" action="index.html" method="post">
+            <h1>Contact </h1>
+          <label class="form-control mt-2" for="first-name">Enter your first name: </label>
+          <input type="text" name="name" class="form-control" id="first-name">
+
+          <label class="form-control mt-2" for="email">Enter your email: </label>
+          <input type="email" name="email" class="form-control" id="email">
+
+          <label class="form-control mt-2" for="message">Type your message here.</label>
+          <textarea class="form control bg-info text-dark message" id="message" name="message" rows="5" >
+
+          </textarea>
+
+          <button id="submit" type="button" class="btn btn-lg btn-info text-light mt-3 border border-info" name="button">Send</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="mt-4">
+      <div class="row clearfix">
+
+        <div class="col text-center social">
+          <i class="fab fa-facebook-f"></i>
+        </div>
+        <div class="col text-center social">
+          <i class="fab fa-twitter"></i>
+        </div>
+        <div class="col text-center social">
+          <i class="fab fa-instagram"></i>
+        </div>
+      </div>
+
+      <div class="row fw-bolder clearfix py-3 my-3">
+        <div class="col  copyright">
+          <p class="">Copyright © 2021. All rights reserved</p>
+        </div>
+        <div class="col developer">
+          <p class="float-end">Developed by Beula Samuel</p>
+        </div>
+      </div>
     </footer>
 </div>
 <!-- ==================
 scripts
 ==================== -->
-<!-- map key -->
+  <!-- jQuery cdn -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-<script src="js/mapKey.js">
+  <!-- bootstrap js with popperjs -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-</script>
+  <!-- map key -->
+
+  <script src="js/mapKey.js">
+
+  </script>
 
 <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
 <!-- Please replace the key -->
+<!-- Maps and marker -->
  <!-- <script
-   src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&libraries=&v=weekly"
+   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1TJE9lY3eXWWfp3kOZmAt2J7ks-oqmaA&callback=initMap&libraries=&v=weekly"
    async
  ></script> -->
+
+<!-- Routes and Distance -->
+ <!-- Async script executes immediately and must be after any DOM elements used in callback.  -->
+     <!-- <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1TJE9lY3eXWWfp3kOZmAt2J7ks-oqmaA&callback=initMap&v=weekly"
+      async
+    ></script> -->
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+   <script
+     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1TJE9lY3eXWWfp3kOZmAt2J7ks-oqmaA&callback=initMap&libraries=places&v=weekly"
+     async
+   ></script>
+
 <!-- my own script -->
 <script src="js/script.js">
 

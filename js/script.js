@@ -1,20 +1,18 @@
 console.log('js'); //viewed in console of the browser
+
+//demo of modal
 //   $('#more').hide();
 // $('#demo-modal').click(function(){
 //   $('#more').show();
 // });
-
-
-
-
-// console.log(key);//mapKey.js has the key.
+console.log(key);//mapKey.js has the key.
 
 // incorporating the map key into the script tag
-// var script  = '<script src="https://maps.googleapis.com/maps/api/js?key='+ key +'&callback=initMap&libraries=places&v=weekly" async></script>';
-// console.log(script);
+var script  = '<script src="https://maps.googleapis.com/maps/api/js?key='+ key +'&callback=initMap&libraries=places&v=weekly" async></script>';
+console.log(script);
  // javascript functionality to be triggered after the webpage is loaded.
 $(document).ready(function(){
-  // $('body').append(script);//appending script var to body of index.html for a safe use of the key
+  $('body').append(script);//appending script var to body of index.html for a safe use of the key
 
   $("#register").hide();
   $("#book").hide();
@@ -350,11 +348,16 @@ class AutocompleteDirectionsHandler {
             console.log(response.routes[0].legs[0].start_address, response.routes[0].legs[0].end_address);
             console.log(response.routes[0].legs[0].distance.text,response.routes[0].legs[0].duration.text);
             var result = document.getElementById('result');
-            result.innerHTML = '<p class="bg-info text-primary fw-bold h3">Start at: '+ response.routes[0].legs[0].start_address +'<br>'+'<br>'+
+            result.innerHTML =  '<label class="form-control mt-4" for="date">Select a date </label>' +
+                                '<input class="form-control" type="date" id="date" name="start-time">' +
+
+                                '<label class="form-control mt-4" for="time">Select a time:</label>' +
+                                '<input class="form-control" type="time" id="time" name="time">' +
+                                '<p class="bg-success text-info fw-bold h3">Start at: '+ response.routes[0].legs[0].start_address +'<br>'+'<br>'+
                                 'Reach destination: ' +response.routes[0].legs[0].end_address+'<br>'+'<br>'+
                                 'Distance:  '+response.routes[0].legs[0].distance.text+'<br>'+ '<br>'+
-                                'Duration: '+response.routes[0].legs[0].duration.text+'<br>'+ '<br>'+'<br>'+
-                                'Amount to be paid: $ ' + parseFloat(response.routes[0].legs[0].distance.text) * 2.50 +'</p>'+'<br>'+'<br>';
+                                'Duration: '+response.routes[0].legs[0].duration.text+'<br>'+ '<br>'+'<br></p>'+
+                                '<p class="bg-green text-light"> Amount to be paid: $ ' + parseFloat(response.routes[0].legs[0].distance.text) * 2.50 +'</p>'+'<br>'+'<br>';
 
 
 
@@ -368,12 +371,6 @@ class AutocompleteDirectionsHandler {
 
 }//AutocompleteDirectionsHandler
 
-// $('#result').html(
-
-// parseFloat(response.routes[0].legs[0].distance.text) * 2.50 +'</button>');
-
-// function myModal(){// Button trigger modal
-//   console.log('myModal');
   result.innerHTML +=
   '<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">'+
   '  Pay now   </button>'+
